@@ -5,6 +5,7 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import Movie from './Movie';
 import 'antd/dist/antd.css';
 import styles from '../styles/Home.module.css';
+import { BACKEND_URL } from '../../backend/urls'; 
 
 function Home() {
   const [likedMovies, setLikedMovies] = useState([]);
@@ -37,9 +38,9 @@ function Home() {
   // Movies list
   useEffect(() => {
     const fetchMovies = async () => {
-      const moviesData = await fetch('https://mymoviz-backend-three-rose.vercel.app/movies')
+      const moviesData = await fetch(`${BACKEND_URL}movies`)
         .then(response => response.json())
-        .then(data => data.results)
+        .then(data => data)
         .catch(error => {
           console.error('Error fetching movies:', error);
           return [];
@@ -51,9 +52,9 @@ function Home() {
 
   const moviesList = movies.map((data, i) => {
     const isLiked = likedMovies.some(movie => movie === data.title);
-    const truncatedOverview = data.overview.length > 250 ? data.overview.slice(0, 250) + '...' : data.overview;
-    const posterPath = `https://image.tmdb.org/t/p/original${data.poster_path}`;
-    return <Movie key={i} updateLikedMovies={updateLikedMovies} isLiked={isLiked} title={data.title} overview={truncatedOverview} poster={posterPath} voteAverage={data.vote_average} voteCount={data.vote_count} />;
+    const overview = data.overview.length > 250 ? data.overview.slice(0, 250) + '...' : data.overview;
+    const poster_path = `https://image.tmdb.org/t/p/original${data.poster_path}`;
+    return <Movie key={i} updateLikedMovies={updateLikedMovies} isLiked={isLiked} title={data.title} overview={overview} poster_path={poster_path} vote_average={data.vote_average} vote_count={data.vote_count} />;
   });
 
   return (
