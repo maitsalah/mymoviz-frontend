@@ -37,7 +37,7 @@ function Home() {
   // Movies list
   useEffect(() => {
     const fetchMovies = async () => {
-      const moviesData = await fetch('https://mymoviz-backend-three-rose.vercel.app/movies/movies')
+      const moviesData = await fetch('https://mymoviz-backend-three-rose.vercel.app/movies')
         .then(response => response.json())
         .then(data => data.results)
         .catch(error => {
