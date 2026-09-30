@@ -1,0 +1,44 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 220px;
+	margin: 0;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 2 / 3;
+	object-fit: cover;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.textContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 190px;
+	margin: 12px 0 0;
+}
+
+.name {
+	font-weight: 600;
+}
+
+.description {
+	font-weight: 300;
+	font-size: 14px;
+	margin: 8px 0 0;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;
+}
+
+.iconContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-size: 12px;
+}
