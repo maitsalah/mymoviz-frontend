@@ -5,7 +5,6 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import Movie from './Movie';
 import 'antd/dist/antd.css';
 import styles from '../styles/Home.module.css';
-import { BACKEND_URL } from '../../backend/urls'; 
 
 function Home() {
   const [likedMovies, setLikedMovies] = useState([]);
